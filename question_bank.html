@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞猜翻翻乐</title>
+    <link rel="stylesheet" href="question_bank_styles.css">
+</head>
+<body>
+    <!-- 设置界面 -->
+    <div id="setupScreen" class="setup-container">
+        <div class="setup-card">
+            <h1>🎯 竞猜翻翻乐</h1>
+            <p class="setup-subtitle">创建新问题或从题库中选择</p>
+            
+            <!-- 题库管理区域 -->
+            <div class="question-bank-section">
+                <h3>📚 我的题库</h3>
+                <div class="bank-controls">
+                    <button id="showBank" class="btn btn-secondary">查看题库</button>
+                    <button id="clearBank" class="btn btn-warning">清空题库</button>
+                </div>
+                <div id="questionBankList" class="question-bank-list" style="display: none;">
+                    <!-- 题库列表将动态生成 -->
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 新问题创建区域 -->
+            <h3>✨ 创建新问题</h3>
+            <div class="form-group">
+                <label for="customQuestion">问题：</label>
+                <input type="text" id="customQuestion" placeholder="例如：人们最常忘记带什么出门？" maxlength="100">
+            </div>
+            
+            <div class="answers-grid">
+                <div class="answer-input-group">
+                    <label>选项 1：</label>
+                    <input type="text" class="answer-input" data-index="0" placeholder="第一个答案">
+                </div>
+                <div class="answer-input-group">
+                    <label>选项 2：</label>
+                    <input type="text" class="answer-input" data-index="1" placeholder="第二个答案">
+                </div>
+                <div class="answer-input-group">
+                    <label>选项 3：</label>
+                    <input type="text" class="answer-input" data-index="2" placeholder="第三个答案">
+                </div>
+                <div class="answer-input-group">
+                    <label>选项 4：</label>
+                    <input type="text" class="answer-input" data-index="3" placeholder="第四个答案">
+                </div>
+                <div class="answer-input-group">
+                    <label>选项 5：</label>
+                    <input type="text" class="answer-input" data-index="4" placeholder="第五个答案">
+                </div>
+                <div class="answer-input-group">
+                    <label>选项 6：</label>
+                    <input type="text" class="answer-input" data-index="5" placeholder="第六个答案">
+                </div>
+                <div class="answer-input-group">
+                    <label>选项 7：</label>
+                    <input type="text" class="answer-input" data-index="6" placeholder="第七个答案">
+                </div>
+                <div class="answer-input-group">
+                    <label>选项 8：</label>
+                    <input type="text" class="answer-input" data-index="7" placeholder="第八个答案">
+                </div>
+                <div class="answer-input-group">
+                    <label>选项 9：</label>
+                    <input type="text" class="answer-input" data-index="8" placeholder="第九个答案">
+                </div>
+            </div>
+            
+            <div class="setup-buttons">
+                <button id="saveAndStart" class="btn btn-primary">保存并开始游戏</button>
+                <button id="loadExample" class="btn btn-secondary">加载示例</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 游戏界面 -->
+    <div id="gameScreen" class="game-container" style="display: none;">
+        <!-- 游戏标题 -->
+        <header class="game-header">
+            <h1>🏠 竞猜翻翻乐</h1>
+            <div class="score-display">
+                <div class="team-score">
+                    <span class="team-name">队伍A</span>
+                    <span class="score" id="teamAScore">0</span>
+                </div>
+                <div class="team-score">
+                    <span class="team-name">队伍B</span>
+                    <span class="score" id="teamBScore">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 问题区域 -->
+        <div class="question-section">
+            <div class="question-card">
+                <h2 id="currentQuestion">请设置问题</h2>
+                <div class="question-source">
+                    <span id="questionSource">题库来源</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏板区域 -->
+        <div class="game-board">
+            <div class="board-grid" id="gameBoard">
+                <!-- 牌子将通过JavaScript动态生成 -->
+            </div>
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <div class="controls">
+                <button class="btn btn-primary" id="resetGame">重新开始</button>
+                <button class="btn btn-secondary" id="backToSetup">返回设置</button>
+                <button class="btn btn-warning" id="showAll">显示所有</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="question_bank_script.js"></script>
+</body>
+</html>
